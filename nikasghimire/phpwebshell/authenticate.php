@@ -11,6 +11,4 @@ if ((strcmp($key1, $auth1)==0) && (strcmp($key2, $auth2)==0)){
     $_SESSION['UID']=$auth1+$auth2;
     header("Location: shell.php");
     die();
-} else {
-    
 }

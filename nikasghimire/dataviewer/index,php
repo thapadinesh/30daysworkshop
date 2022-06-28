@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Table Data</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+        <?php
+        $conn = mysqli_connect("localhost", "root", "", "credentials");
+
+        if ($conn->connect_error) {
+
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT username, password FROM data";
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+
+            while ($row = $result->fetch_assoc()) {
+
+                echo "</td><td>" . $row["username"] . "</td><td>"
+                    . $row["password"] . "</td></tr>";
+            }
+
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+
+        $conn->close();
+
+        ?>
+    </table>
+</body>
+
+</html>
