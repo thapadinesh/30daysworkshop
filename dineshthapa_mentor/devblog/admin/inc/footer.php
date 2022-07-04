@@ -79,5 +79,13 @@
     });
   });
 </script>
+
+<!-- For summernote -->
+<script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote()
+  })
+</script>
 </body>
 </html>

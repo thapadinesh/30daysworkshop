@@ -55,7 +55,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="addblog.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Blogs
@@ -64,13 +64,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                <a href="addblog.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Blog</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                <a href="manageblog.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Blogs</p>
                 </a>

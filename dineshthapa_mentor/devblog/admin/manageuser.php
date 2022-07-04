@@ -18,12 +18,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Add User</h1>
+            <h1 class="m-0">Manage Users</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active">Add User</li>
+              <li class="breadcrumb-item active">Manage Users</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -54,16 +54,27 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <a name="" id="" class="btn btn-success btn-sm" href="#" role="button">View</a>
-                            <a name="" id="" class="btn btn-info btn-sm" href="#" role="button">Edit</a>
-                            <a name="" id="" class="btn btn-danger btn-sm" href="#" role="button">Delete</a>
-                        </td>
-                        <td>Dinesh Thapa</td>
-                        <td>thapadinesh1328@gmail.com</td>
-                    </tr>
+                      <?php
+                      $select_query = "SELECT * FROM users";
+                      $select_result = mysqli_query($conn,$select_query);
+                      $i=0;
+                      while($data_row = mysqli_fetch_array($select_result))
+                      {
+                        $i++;
+                        ?>
+                        <tr>
+                            <td><?php echo $i; ?></td>
+                            <td>
+                                <a name="" id="" class="btn btn-success btn-sm" href="viewuser.php?id=<?php echo $data_row['id']; ?>" role="button">View</a>
+                                <a name="" id="" class="btn btn-info btn-sm" href="edituser.php?id=<?php echo $data_row['id']; ?>" role="button">Edit</a>
+                                <a name="" id="" class="btn btn-danger btn-sm" href="process/deleteuser.php?id=<?php echo $data_row['id']; ?>" role="button">Delete</a>
+                            </td>
+                            <td><?php echo $data_row['name'];?></td>
+                            <td><?php echo $data_row['email'];?></td>
+                        </tr>
+                        <?php 
+                      }
+                      ?>
                     </tbody>
                     <tfoot>
                     <tr>
