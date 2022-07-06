@@ -33,15 +33,28 @@
 
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
 				<div class="profile-section pt-3 pt-lg-0">
-				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
+					<?php 
+					$profile_query = "SELECT * FROM siteconfigs WHERE sitekey='profile'";
+					$profile_result = mysqli_query($conn,$profile_query);
+					$profile_row = $profile_result->fetch_assoc();
+					?>
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="<?php echo $profile_row['sitevalue'];?>" alt="image" >			
 					
-					<div class="bio mb-3">Hi, my name is Anthony Doe. Briefly introduce yourself here. You can also provide a link to the about page.<br><a href="about.html">Find out more about me</a></div><!--//bio-->
 					<ul class="social-list list-inline py-3 mx-auto">
-			            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+					<?php 
+					$facebook_query = "SELECT * FROM siteconfigs WHERE sitekey='fb_link'";
+					$facebook_result = mysqli_query($conn,$facebook_query);
+					$facebook_row = $facebook_result->fetch_assoc();
+					?>
+			            <li class="list-inline-item"><a href="<?php echo $facebook_row['sitevalue']; ?>" target="_blank"><i class="fab fa-facebook fa-fw"></i></a></li>
+						<?php 
+					$linkedin_query = "SELECT * FROM siteconfigs WHERE sitekey='linkedin_link'";
+					$linkedin_result = mysqli_query($conn,$linkedin_query);
+					$linkedin_row = $linkedin_result->fetch_assoc();
+					?>
+			            <li class="list-inline-item"><a href="<?php echo $linkedin_row['sitevalue']; ?>" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+						
 			            <li class="list-inline-item"><a href="#"><i class="fab fa-github-alt fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="#"><i class="fab fa-stack-overflow fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="#"><i class="fab fa-codepen fa-fw"></i></a></li>
 			        </ul><!--//social-list-->
 			        <hr> 
 				</div><!--//profile-section-->
@@ -50,9 +63,18 @@
 					<li class="nav-item">
 					    <a class="nav-link active" href="index.php"><i class="fas fa-home fa-fw me-2"></i>Home</a>
 					</li>
+					<?php
+					$select_pages = "SELECT * FROM pages ORDER BY id ASC";
+					$select_result = mysqli_query($conn,$select_pages);
+					while($select_row = mysqli_fetch_array($select_result))
+					{
+						?>
 					<li class="nav-item">
-					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw me-2"></i>About Me</a>
+					    <a class="nav-link" href="page.php?slug=<?php echo $select_row['slug']; ?>"><i class="fas fa-user fa-fw me-2"></i><?php echo $select_row['title']; ?></a>
 					</li>
+						<?php 
+					} 
+					?>
 				</ul>
 				
 				<div class="my-2 my-md-3">

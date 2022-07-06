@@ -77,6 +77,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="addblog.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Pages
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="addpage.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="managepage.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Pages</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
