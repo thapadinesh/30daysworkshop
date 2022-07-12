@@ -45,6 +45,8 @@ class TaskController extends Controller
 
         $task->save();
 
+        notify()->success('Task is added successfully. 😋');
+
         return redirect('task');
     }
 
@@ -90,6 +92,8 @@ class TaskController extends Controller
 
         $task->update();
 
+        notify()->success('Task is updated successfully. 😋');
+
         return redirect('task');
     }
 
@@ -105,6 +109,8 @@ class TaskController extends Controller
         $task = $task->where('id',$id)->first();
 
         $task->delete();
+
+        notify()->success('Task is deleted successfully. 😋');
 
         return redirect('task');
     }
