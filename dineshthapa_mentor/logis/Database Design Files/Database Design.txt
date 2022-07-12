@@ -1,0 +1,37 @@
+Dynamic Website
+
+Front-end (HTML, CSS, JavaScript, Bootstrap)
+
+Front-end UI template
+https://bootstrapmade.com/logis-bootstrap-logistics-website-template/download/
++
+Back-end (PHP, Laravel, MySQL)
+
+Back-end UI template:- adminlte
+https://adminlte.io/
+
+Database Design:-
+Database Name:- logis
+Table 1:- users
+(id, name, email, password, status, created_at, updated_at)
+
+Table 2:- sliders
+(id, title, text, img, status, created_at, updated_at)
+
+Table 3:- services
+(id, title, des, img, order_no, status, created_at, updated_at)
+
+Table 4:- sections
+(id, title, img, content, order_no, status, created_at, updated_at)
+
+Table 5:- pricings
+(id, title, amount, features, order_no, status, created_at, updated_at)
+
+Table 6:- reviews
+(id, name, position, img, text, order_no, status, created_at, updated_at)
+
+Table 7:- contacts
+(id, name, email, subject, message, status, created_at, updated_at)
+
+Table 8:- siteconfigs
+(id, sitekey, sitevalue, status, created_at, updated_at)
