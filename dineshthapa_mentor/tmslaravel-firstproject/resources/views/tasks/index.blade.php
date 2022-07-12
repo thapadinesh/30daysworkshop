@@ -73,6 +73,10 @@
                         </tbody>
                     </table>
                 </div>
+
+
+                {{$task->links()}}
+
                 <div class="card-footer text-muted">
                     Footer
                 </div>

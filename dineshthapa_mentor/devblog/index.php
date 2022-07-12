@@ -37,7 +37,7 @@
 					    <div class="col">
 						    <h3 class="title mb-1"><a class="text-link" href="blog.php?slug=<?php echo $blogs_row['slug']; ?>"><?php echo $blogs_row['title']; ?></a></h3>
 						    <div class="meta mb-1"><span class="date"><?php echo $blogs_row['created_at']; ?></span></div>
-						    <div class="intro"><?php $blogs_row['content']; ?></div>
+						    <div class="intro"></div>
 						    <a class="text-link" href="blog.php?slug=<?php echo $blogs_row['slug']; ?>">Read more &rarr;</a>
 					    </div><!--//col-->
 				    </div><!--//row-->
