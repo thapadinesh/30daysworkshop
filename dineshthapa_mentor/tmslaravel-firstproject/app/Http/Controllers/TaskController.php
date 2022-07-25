@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TasksExport;
+use App\Imports\TasksImport;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+
+use PDF;
 
 class TaskController extends Controller
 {
@@ -113,5 +118,28 @@ class TaskController extends Controller
         notify()->success('Task is deleted successfully. 😋');
 
         return redirect('task');
+    }
+
+    public function createpdf()
+    {
+        $task = new Task;
+        $task = $task->all();
+        $pdf = PDF::loadView('tasks.generatepdf', ['task' => $task])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('tasks.pdf');
+    }
+
+    public function importexcel(Request $request)
+    {
+        Excel::import(new TasksImport, request()->file('taskimportfile'));
+
+        notify()->success('Task is imported successfully. 😋');
+
+        return redirect('task');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new TasksExport, 'tasks.xlsx');
     }
 }

@@ -16,6 +16,18 @@
         <div class="row">
             <div class="card">
                 <a name="" id="" class="btn btn-primary" href="{{route('task.create')}}" role="button">Create Task</a>
+                <a name="" id="" class="btn btn-success" href="{{route('createpdf')}}" role="button">Generate PDF</a>
+                <a name="" id="" class="btn btn-info" href="{{route('exportexcel')}}" role="button">Export to Excel</a>
+
+                <form action="{{route('importexcel')}}" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="">Import Tasks From Excel</label>
+                      <input type="file" name="taskimportfile" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    </div>
+                    @csrf
+                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                </form>
+
                 <div class="card-header">
                     Manage Tasks
                 </div>

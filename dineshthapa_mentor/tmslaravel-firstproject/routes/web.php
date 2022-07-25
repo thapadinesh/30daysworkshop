@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 Route::resource('task','App\Http\Controllers\TaskController')->middleware('auth');
+Route::get('/task/generate/pdf','App\Http\Controllers\TaskController@createpdf')->name('createpdf');
+Route::post('/task/import/excel','App\Http\Controllers\TaskController@importexcel')->name('importexcel');
+Route::get('/task/export/excel','App\Http\Controllers\TaskController@exportexcel')->name('exportexcel');
+
 
 Auth::routes();
 
